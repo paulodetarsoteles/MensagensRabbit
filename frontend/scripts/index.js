@@ -4,7 +4,21 @@ var spanErroTelefone = document.querySelector('.erro_numero');
 var inputMensagem = document.getElementById('input_mensagem');
 var contadorSpanMensagem = document.getElementById('contador_input_mensagem');
 var formulario = document.querySelector('form');
+var buttonTestarApi = document.getElementById('testar_api');
 
+// Função para enviar teste para API
+function testarApi() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://localhost:7298/api/home/Index', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE)
+            handleResponseTestApi(xhr);
+    };
+
+    xhr.send();
+}
 
 // Função para formatar o número de telefone
 function formatarNumeroTelefone(event, spanErro) {
@@ -54,7 +68,7 @@ function contarCaracteresMensagem(event, contadorSpan) {
 function verificarHabilitarEnvio() {
     var telefone = document.getElementById('telefone').value;
     var mensagem = document.getElementById('input_mensagem').value;
-    var botaoEnvio = document.querySelector('button');
+    var botaoEnvio = document.getElementById('botaoEnvio');
 
     if (isValidPhone(telefone) && mensagem != null && mensagem != '') {
         botaoEnvio.disabled = false;
@@ -74,7 +88,7 @@ function enviarMensagem() {
     };
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:5000/recebermsg', true);
+    xhr.open('POST', 'https://localhost:7298/api/home/recebermsg', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function () {
@@ -112,8 +126,21 @@ function handleResponse(xhr) {
     }
 }
 
+// Função para manipular a respota do teste da Api
+function handleResponseTestApi(xhr) {
+    if (xhr.status === 200)
+        alert('Api funcionando!');
+    else
+        alert('Teste falhou!');
+}
 
 // Adiciona listeners para os eventos de entrada nos inputs e formulário
+
+buttonTestarApi.addEventListener('click', function(event){
+    event.preventDefault();
+    testarApi();
+});
+
 inputTelefone.addEventListener('input', function(event) {
     formatarNumeroTelefone(event, spanErroTelefone);
     verificarHabilitarEnvio();
@@ -122,9 +149,4 @@ inputTelefone.addEventListener('input', function(event) {
 inputMensagem.addEventListener('input', function(event) {
     contarCaracteresMensagem(event, contadorSpanMensagem);
     verificarHabilitarEnvio();
-});
-
-formulario.addEventListener('submit', function(event) {
-    event.preventDefault();
-    enviarMensagem();
 });

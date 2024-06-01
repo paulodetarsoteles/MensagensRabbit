@@ -9,8 +9,12 @@
 </head>
 <body>
     <h2>TESTE DE ENVIO DE MENSAGENS</h2>
+    <div class="label_section_inputs">
+        <button id="testar_api">Testar API</button>
+    </div>
     <form action="post">
         <section class="label_section_inputs">
+            <h4>Dados da mensagem</h4>
             <div class="label_input">
                 <span>Número: </span>
                 <input type="text" id="telefone" placeholder="(99)99999-9999" maxlength="15">
@@ -23,10 +27,9 @@
             <span id="contador_input_mensagem"></span>
         </section>
         <div style="padding-left: 2rem;">
-            <button disabled>Enviar</button>
+            <button id="botaoEnvio" disabled>Enviar</button>
         </div>
     </form>
     <script src="scripts/index.js"></script>
 </body>
 </html>
-

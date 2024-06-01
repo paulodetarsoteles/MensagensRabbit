@@ -8,6 +8,7 @@ namespace Mensagens.API.Controllers
     [Route("api/[controller]")]
     public class HomeController : Controller
     {
+        [HttpGet("index")]
         public IActionResult Index() => Ok("API funcionando!");
 
         [HttpPost("recebermsg")]
