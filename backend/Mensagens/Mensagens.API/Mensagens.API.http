@@ -1,0 +1,6 @@
+@Mensagens.API_HostAddress = http://localhost:5118
+
+GET {{Mensagens.API_HostAddress}}/home/
+Accept: application/json
+
+###
