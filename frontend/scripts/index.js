@@ -66,11 +66,11 @@ function verificarHabilitarEnvio() {
 // Função para enviar a mensagem para a API
 function enviarMensagem() {
     var telefone = document.getElementById('telefone').value;
-    var mensagem = document.getElementById('input_mensagem').value;
+    var msgtxt = document.getElementById('input_mensagem').value;
 
     var mensagemJSON = {
         telefone: telefone,
-        mensagem: mensagem
+        msgtxt: msgtxt
     };
 
     var xhr = new XMLHttpRequest();
