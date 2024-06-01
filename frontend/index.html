@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="media/letter.ico">
+    <link rel="stylesheet" href="css/styles.css">    
+    <title>Teste Microserviço</title>
+</head>
+<body>
+    <h2>TESTE DE ENVIO DE MENSAGENS</h2>
+    <form action="post">
+        <section class="label_section_inputs">
+            <div class="label_input">
+                <span>Número: </span>
+                <input type="text" id="telefone" placeholder="(99)99999-9999" maxlength="15">
+            </div>
+            <span class="erro_numero">Número de telefone inválido... (99)99999-9999</span>
+            <div class="label_input">
+                <span>Mensagem: </span>
+                <input type="text" id="input_mensagem" placeholder="Digite aqui" maxlength="30">
+            </div>
+            <span id="contador_input_mensagem"></span>
+        </section>
+        <div style="padding-left: 2rem;">
+            <button disabled>Enviar</button>
+        </div>
+    </form>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
+

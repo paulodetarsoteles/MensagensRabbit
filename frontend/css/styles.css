@@ -1,0 +1,19 @@
+h2{
+    color: brown;
+    padding-left: 2rem;
+}
+.label_section_inputs{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+}
+.label_input{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.erro_numero{
+    color: red;
+    display: none;
+}
