@@ -9,7 +9,7 @@ var buttonTestarApi = document.getElementById('testar_api');
 // Função para enviar teste para API
 function testarApi() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://localhost:7298/api/home/Index', true);
+    xhr.open('GET', 'http://localhost:5118/api/home/Index', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function () {
@@ -88,7 +88,7 @@ function enviarMensagem() {
     };
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://localhost:7298/api/home/recebermsg', true);
+    xhr.open('POST', 'http://localhost:5118/api/home/recebermsg', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function () {
