@@ -11,7 +11,12 @@ namespace Mensagens.API.Service
         {
             try
             {
-                ConnectionFactory factory = new() { HostName = "localhost" };
+                ConnectionFactory factory = new() 
+                {
+                    HostName = "localhost",
+                    UserName = "admin",
+                    Password = "123456"
+                };
 
                 using IConnection connection = factory.CreateConnection();
                 using IModel channel = connection.CreateModel();

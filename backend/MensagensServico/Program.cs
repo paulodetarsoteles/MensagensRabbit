@@ -20,7 +20,12 @@ namespace MensagensServico
 
                 try
                 {
-                    ConnectionFactory factory = new() { HostName = "localhost" };
+                    ConnectionFactory factory = new() 
+                    {
+                        HostName = "localhost",
+                        UserName = "admin",
+                        Password = "123456"
+                    };
 
                     using IConnection connection = factory.CreateConnection();
                     using IModel channel = connection.CreateModel();
@@ -40,7 +45,7 @@ namespace MensagensServico
 
                         Mensagem mensagem = new();
 
-                        if (!string.IsNullOrEmpty(messageReceived))
+                        if (string.IsNullOrEmpty(messageReceived))
                         {
                             Console.WriteLine("Mensagem recebida está vazia.");
                             return;
